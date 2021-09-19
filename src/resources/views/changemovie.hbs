@@ -1,0 +1,82 @@
+<div class="container pd-hd">
+  {{#with data}}
+  <form method="POST" action="/me/upload">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Tên Phim</label>
+    <input type="text" name="name" class="form-control" value="{{name}}" id="exampleInputEmail1" aria-describedby="emailHelp">
+   
+  </div>
+   <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Mô tả</label>
+    <input type="text" name="description" value="{{description}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+   
+  </div>
+   <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">video</label>
+    <input type="text" name="video"value='{{video}}' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+   
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Thể loại</label>
+
+    <select name="case" id="">
+      <option value="pl">Phim lẻ</option>  <!-- pl: phim lẻ -->
+      <option value="pb">Phim bộ</option>  <!-- pc: phim  bộ -->
+    </select>
+    <div class="chkbox_type d-flex">
+      <div class="d-flex flex-column mx-3"> 
+      <div>
+           <input type="checkbox" value="1" name="typeMovie"> hoạt hình <!-- 1: Phim hoạt hình -->
+      </div>
+       <div>
+          <input type="checkbox" value="2" name="typeMovie"> chiếu rạp <!-- 2: Phim chiếu rạp -->
+       </div>
+        <div>
+           <input type="checkbox" value="3" name="typeMovie"> kinh dị <!-- 3: Phim kinh dị -->
+       </div>
+       <div>
+   <input type="checkbox" value="4" name="typeMovie"> tình cảm <!-- 4: Phim tình cảm -->
+      </div>
+       <div>
+    <input type="checkbox" value="5" name="typeMovie"> trinh thám <!-- 5: Phim trinh thám -->
+       </div>
+        <div>
+          <input type="checkbox" value="6" name="typeMovie"> hài hước <!-- 6: Phim hài hước -->
+       </div>
+      
+      </div>
+      
+      <div class="d-flex flex-column"> 
+      <div>
+           <input type="checkbox" value="7" name="typeMovie"> hành động <!-- 1: Phim hoạt hình -->
+      </div>
+       <div>
+          <input type="checkbox" value="2" name="typeMovie"> viễn tưởng <!-- 2: Phim chiếu rạp -->
+       </div>
+        <div>
+           <input type="checkbox" value="3" name="typeMovie"> thiên nhiên <!-- 3: Phim kinh dị -->
+       </div>
+       <div>
+   <input type="checkbox" value="4" name="typeMovie"> tuổi thơ <!-- 4: Phim tình cảm -->
+      </div>
+       <div>
+    <input type="checkbox" value="5" name="typeMovie"> học đường <!-- 5: Phim trinh thám -->
+       </div>
+        <div>
+          <input type="checkbox" value="6" name="typeMovie"> tình yêu <!-- 6: Phim hài hước -->
+       </div>
+      
+      </div>
+    </div>
+  
+  </div>
+ 
+   <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">image</label>
+    <input type="text"  name="image" value="{{image}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+    <button type="submit" class="btn btn-primary">Thêm</button>
+    <div class="btn btn-light">Hủy</div>
+</form>
+{{/with}}
+</div>

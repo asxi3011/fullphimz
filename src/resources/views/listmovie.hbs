@@ -1,0 +1,57 @@
+ <div class="container-fluid list pd-hd">
+      <div class="row mt-4">
+          <h3>
+              Danh sách phim
+          </h3>
+          {{#each data}}
+                           <div class="col-2 img-phim mb-3">
+                               <div class="img-movie">
+                                      <img src="{{this.image}}" alt="">
+                               </div>
+                                 <div class=" text-left">{{this.name}}</div>
+                                <div class="rate-movie d-flex mt-2 justify-content-around">
+                                    <a href="/me/changemovie/{{this._id}}" class="btn btn-warning">Sửa</a>
+                                    <div class="btn btn-danger" data-bs-toggle="modal" data-whatever="{{this._id}}" data-bs-target="#modalConfirmDelete">Xóa</div>
+                                </div>
+                             
+                                
+                           </div>
+        {{/each}}
+                           
+</div>
+
+ </div>
+
+ <div class="modal fade" id="modalConfirmDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Bạn có muốn xóa phim ?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Việc này không thể khôi phục ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+        <button type="button" id='delete_movie' class="btn btn-danger">Xóa</button>
+      </div>
+    </div>
+  </div>
+</div>
+<form name="formDelete" method="POST">
+</form>
+<script>
+    var deleteModal = document.getElementById('modalConfirmDelete')
+    var btnDelete = document.getElementById('delete_movie');
+    var frmDelete = document.forms["formDelete"];
+    deleteModal.addEventListener('show.bs.modal', function (event) {
+  var button = event.relatedTarget
+  var recipient = button.getAttribute('data-whatever')
+  btnDelete.addEventListener('click',function(){
+      frmDelete.action="/me/deleteMovie/"+recipient +"";
+      frmDelete.submit();
+  })
+  console.log(recipient)
+})
+</script>

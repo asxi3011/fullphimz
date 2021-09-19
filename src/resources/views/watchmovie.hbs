@@ -1,0 +1,230 @@
+
+<div class="container-fluid pd-hd bg-img d-flex ">
+    <div class=" container-fluid ">
+      {{#with data}}
+      <div class="img_description_movie pd-ct">
+        <div class="row text-light">
+          <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12 ">
+            <img class="img-info" src="{{image}}" alt="">
+          </div>
+          <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-6 col-sm-12">
+            <div class="title-movie fw-bold">{{name}}</div>
+             
+             <div class="mt-2">
+              <p class="text-Capitalize">Thời lượng: {{timePlay}} phút</p>
+              <p class="text-Capitalize">Số tập: {{episode}}</p>
+               <p class="text-Capitalize"> Quốc gia: {{country}} </p> 
+               <p class="text-Capitalize">Thể loại: {{type}}</p>
+                <p class="text-Capitalize">Lượt xem: {{views}}</p>
+            </div>
+             <div class="summary mt-2"><!--Tóm tắt-->
+                  {{!-- <p class="mt-2">{{description}}</p> --}}
+                 
+            </div>
+          </div>
+           
+        </div>
+       
+       </div>
+               {{/with}}
+        <div class="container-fluid text-secondary pd-ct pdr-0 mt-2">
+            <div class="row d-flex justify-content-between">
+            <div class="col-xxl-9 col-xl-9 col-lg-9 col-md-12 col-sm-12">
+            <div class="video-movie mt-4">
+              {{#if srcvideo}}
+              <div id="current">0:00</div>
+              <div id="duration">0:00</div>
+                <video id="video-active" width="100%"   height="440"  controls>
+                <source src="{{srcvideo}}" type="video/mp4"> 
+
+              </video> 
+              {{/if}}
+              {{#if videoinfo}}
+              <iframe width="100%" height="440" src="//ok.ru/videoembed/{{videoinfo}}" frameborder="0" allow="autoplay" allowfullscreen></iframe>
+              {{/if}}
+            
+              {{#unless videoinfo }}
+            
+              {{#unless srcvideo }}
+              <div class="not-found-movie ">
+                  <div class="text-danger ">
+                      <div class="fw-bold fs-2 text-center">HIỆN TẠI KHÔNG CÓ TẬP PHIM NÀY</div>
+                  </div>
+              </div>
+             
+              </iframe>
+            {{/unless}}
+              {{/unless}}
+            </div>
+            {{#with data}}
+            <div>
+              <span>Chọn tập phim</span>
+     
+              <div class=" d-flex flex-wrap" id="choose_ep">
+                  
+                  <span hidden id="numberEp">{{episodeRelease}}</span>
+                
+                
+           
+              </div>
+      
+            </div>
+              <div class="fb-comments bg-light w-100 rounded-3 mt-2" data-href="https://fullphimz-clone.herokuapp.com/me/movie/{{slug}}" data-width="100%" data-numposts="5"></div>
+             {{/with}}
+
+             <div class="maybeyouwantsee text-center mt-5">
+                <h2 class="text-warning">Có Thể Bạn Muốn Xem</h2>
+                 <div class="row mt-2">
+                           
+                           {{#each dataBanMuonXem}}
+                           <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-12 img-phim mb-3 gx-5 pd-home">
+                               <div class="img-movie">
+                                   <a href="/me/{{this.slug}}" class="img-a-movie">
+                                     <div class="img-mark">
+                                            <div class="content-mark fw-bold text-center">
+                                                {{this.mark}}
+                                            </div>
+                                        </div>
+                                   <img src="{{this.image}}" alt="">
+                                   </a>
+                               </div>
+                                <div class="rate-movie d-flex mt-2 justify-content-center">
+                                    <i class="fas fa-star star-active"></i>
+                                    <i class="fas fa-star star-active"></i>
+                                    <i class="fas fa-star star-active"></i>
+                                    <i class="fas fa-star star-active"></i>
+                                    <i class="fas fa-star star-active"></i>
+                                </div>
+                               <div class="text-light text-left text-name">
+                                   <a href="/me/{{this.slug}}">
+
+                                   {{this.name}}
+                                   </a>
+                                   
+                                   </div>
+                                <div class="hashtag" ><i class="far fa-hourglass text-danger"></i> {{timePlay}} phút </div> 
+                           </div>
+                          {{/each}}
+                       </div>
+            </div>
+         
+            </div>
+             <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-0 col-sm-0 phimhot" >
+               <div>
+                  <div class="Catogary-phimscroll Catogary-phimbo fs-5">PHIM BỘ MỚI</div>
+                  <div class="scrollmove">
+                    {{#each dataBanMuonXem}}
+                      <div class="scrollhot d-flex justify-content-evenly">
+                      <div class="img-scroll">
+                          <img src="{{this.image}}">
+                      </div>
+                        <div class="w-100 d-flex flex-column align-items-center justify-content-evenly">
+
+                     
+                      <div class="w-75 text-light ">
+                         <div>{{this.name}}</div> 
+                            <div class="hashtag" ><i class="far fa-hourglass text-danger"></i> {{timePlay}} phút </div> 
+                     </div>
+                     
+                         <div class="rate-movie d-flex mt-2 w-75">
+                                    <i class="fas fa-star star-active"></i>
+                                    <i class="fas fa-star star-active"></i>
+                                    <i class="fas fa-star star-active"></i>
+                                    <i class="fas fa-star star-active"></i>
+                                    <i class="fas fa-star star-active"></i>
+                        </div>
+                     
+                        </div>
+                        </div>
+                    {{/each}}
+
+                  </div>
+                </div>
+                <div class="mt-4">
+                      <div class="Catogary-phimscroll Catogary-phimbo fs-5">PHIM LẺ HOT</div>
+                  <div class="scrollmove">
+                      {{#each dataBanMuonXem}}
+                      <div class="scrollhot d-flex justify-content-evenly">
+                      <div class="img-scroll">
+                          <img src="{{this.image}}">
+                      </div>
+                        <div class="w-100 d-flex flex-column align-items-center justify-content-evenly">
+
+                     
+                      <div class="w-75 text-light ">
+                         <div>{{this.name}}</div> 
+                          <div class="hashtag" ><i class="far fa-hourglass text-danger"></i> {{timePlay}} phút </div> 
+                     </div>
+                     
+                         <div class="rate-movie d-flex mt-2 w-75">
+                                    <i class="fas fa-star star-active"></i>
+                                    <i class="fas fa-star star-active"></i>
+                                    <i class="fas fa-star star-active"></i>
+                                    <i class="fas fa-star star-active"></i>
+                                    <i class="fas fa-star star-active"></i>
+                        </div>
+                     
+                        </div>
+                        </div>
+                    {{/each}}
+                        
+                  </div>
+                   
+                        
+                  </div>
+                </div>
+              </div>
+            </div>
+           
+          
+        </div>
+            {{#with data}}
+        <div id="slugEpisode" hidden>{{slug}}</div>
+               
+          {{/with}}
+         <div id="slugEpisodeNumber" hidden>{{ep}}</div>
+         
+    </div>
+
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded',function(){
+      const a = $('#numberEp');
+      const b =reloadEp(a.text());
+       $('#choose_ep').html(b);
+      const slugSo = $('#slugEpisodeNumber').text();
+      const so = Number(slugSo);
+      const thea = $(`.choose-episode:nth-child(${so})`);
+      thea.addClass('epSelecting');
+
+        $(document).ready(function(){
+        $("#video-active").on(
+          "timeupdate", 
+          function(event){
+            onTrackedVideoFrame(this.currentTime, this.duration);
+          });
+        });
+
+        function onTrackedVideoFrame(currentTime, duration){
+          var minutes = Math.floor(currentTime / 60);
+          var minutesDuration = Math.floor(duration / 60);
+          var sencond = currentTime.toFixed(0)%60;
+          $("#current").text(`${minutes}:${sencond}`); //Change #current to currentTime
+          $("#duration").text(`${minutesDuration}`);
+      } 
+  })
+  function reloadEp(ep){
+     const numberEp = Number(ep);
+     var slug = $('#slugEpisode').text();
+     var a ="" ;
+    for (let i = 1; i <= numberEp; i++) {
+       a +=  `<div class="choose-episode mx-2 mt-3">
+                     <a  href="/me/movie/${slug}/${i}">${i}</a>
+                </div>`
+    }
+    return a;
+  }
+
+
+
+</script>

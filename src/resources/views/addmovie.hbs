@@ -1,0 +1,197 @@
+<div class="container pd-hd">
+  <form name="frm_addMovie" method="POST" action="/me/upload" id="test777">
+  
+       <div class="mb-3">
+    <label for="nameMovie" class="form-label">Tên Phim</label>
+    <input type="text" name="name" class="form-control" id="nameMovie" aria-describedby="emailHelp">
+   
+  </div>
+   <div class="mb-3">
+    <label for="desMovie" class="form-label">Mô tả</label>
+    <input type="text" name="description"class="form-control" id="desMovie" aria-describedby="emailHelp">
+   
+  </div>
+    <div class="mb-3">
+    <label for="countryMovie" class="form-label">Quốc gia</label>
+    <input type="text" name="country"class="form-control" id="countryMovie" aria-describedby="emailHelp">
+   
+  </div>
+   <div class="mb-3">
+    <label for="imageMovie" class="form-label">image</label>
+    <input type="text"  name="image" class="form-control" id="imageMovie" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label for="trailerMovie" class="form-label">Trailer ID</label>
+    <input type="text"  name="trailer" class="form-control" id="trailerMovie" aria-describedby="emailHelp">
+  </div>
+  
+  <div class="mb-3">
+    <label for="selectCase" class="form-label">Thể loại</label>
+
+    <select name="case" id="selectCase">
+      <option value="pl">Phim lẻ</option>  <!-- pl: phim lẻ -->
+      <option value="pb">Phim bộ</option>  <!-- pc: phim  bộ -->
+    </select>
+   
+   <div class="chkbox_type d-flex justify-content-around">
+      <div class="choose_type d-flex">
+            <div class="d-flex flex-column mx-3"> 
+      <div>
+           <input type="checkbox" value="hoạt hình" name="typeMovie"> hoạt hình <!-- 1: Phim hoạt hình -->
+      </div>
+       <div>
+          <input type="checkbox" value="chiếu rạp" name="typeMovie"> chiếu rạp <!-- 2: Phim chiếu rạp -->
+       </div>
+      
+      <div>
+           <input type="checkbox" value="kinh dị" name="typeMovie"> kinh dị <!-- 3: Phim kinh dị -->
+       </div>
+       <div>
+   <input type="checkbox" value="tình cảm" name="typeMovie"> tình cảm <!-- 4: Phim tình cảm -->
+      </div>
+       <div>
+    <input type="checkbox" value="trinh thám" name="typeMovie"> trinh thám <!-- 5: Phim trinh thám -->
+       </div>
+        <div>
+          <input type="checkbox" value="hài hước" name="typeMovie"> hài hước <!-- 6: Phim hài hước -->
+       </div>
+      
+      </div>
+      
+      <div class="d-flex flex-column"> 
+      <div>
+           <input type="checkbox" value="hành động" name="typeMovie"> hành động <!-- 7: Phim hành động -->
+      </div>
+       <div>
+          <input type="checkbox" value="viễn tưởng" name="typeMovie"> viễn tưởng <!-- 8: Phim viễn tưởng -->
+       </div>
+        <div>
+           <input type="checkbox" value="phiêu lưu" name="typeMovie"> phiêu lưu<!--9: Phim thiên nhiên -->
+       </div>
+       <div>
+   <input type="checkbox" value="tuổi thơ" name="typeMovie"> tuổi thơ <!-- 10: Phim tuổi thơ-->
+      </div>
+       <div>
+    <input type="checkbox" value="học đường" name="typeMovie"> học đường <!-- 11: Phim học đường -->
+       </div>
+        <div>
+          <input type="checkbox" value="tình yêu" name="typeMovie"> tình yêu <!-- 12: Phim trinh thám -->
+       </div>
+      
+      </div>
+      </div>
+      
+       <div>
+      <div class="d-flex flex-column">
+      <div class="mx-3 d-flex align-items-center">
+            <label for="timeMovie" class="form-label w-50">Thời lượng</label>
+          <input type="text" name="timePlay" class="form-control w-50 mx-1" id="timeMovie" aria-describedby="emailHelp" placeholder="(phút)">
+      </div>
+      <div class="mx-3 d-flex align-items-center">
+       
+                <label for="episodeMovie" class="form-label w-50">Số tập</label>
+          <input type="text" name="episode" class="form-control w-25 mx-1" id="episodeMovie" aria-describedby="emailHelp" placeholder="1" disabled>
+
+      </div>
+      <div class="mx-3 d-flex align-items-center">
+           <label for="episodeMovieRelease" class="form-label w-50 fw-bold text-danger">Số tập hiện có</label>
+          <input  type="text" name="episodeRelease" class="form-control w-25 mx-1" id="episodeMovieRelease" aria-describedby="emailHelp">
+      </div>
+      <div class="mx-3 d-flex align-items-center">
+         <label for="markMovie" class="form-label w-50">Điểm Imdb</label>
+          <input type="text" name="mark" class="form-control w-50 mx-1" id="markMovie" aria-describedby="emailHelp">
+      </div>
+      <div class="mx-3">
+           <div class="btn btn-success w-50 float-end"id="confirm_ep" > Xác nhận</div>
+      </div>
+      
+      </div>
+       </div>
+    </div>
+  
+  </div>
+   <div class="mb-3">
+      <div>Phân loại source</div>
+      <select name="sourceVideo" id="">
+         <option value="okiframe">Id Iframe (OK Socail Network)</option>
+         <option value="srcvideo">Link Video</option>
+      </select>
+      </div>
+   <div class="mb-3" id="divMovie">
+    <label for="vidMovie" class="form-label">video</label>
+    <input type="text" name="video" class="form-control" id="vidMovie" aria-describedby="emailHelp">
+   
+  </div>
+  <div id="insertVideoLink">
+      
+  </div>
+
+
+    <button type="submit" class="btn btn-primary">Thêm</button>
+    <div class="btn btn-light">Hủy</div>
+</form>
+</div>
+<script>
+   document.addEventListener('DOMContentLoaded',function(){
+      var selectCase = $('#selectCase');
+      var epMovie = $('#episodeMovie');
+       var timeMovie = $('#timeMovie');
+       var confirm_ep = $('#confirm_ep');
+       var vidMovie = $('#divMovie');
+      var frmaddMovie = document.forms['frm_addMovie'];
+      var test = $('#insertVideoLink');
+      selectCase.change(function(){
+         if(selectCase.val() === "pb"){
+            selectPhimBo();
+         }
+         else{
+               selectPhimLe();
+         }
+      })
+       
+      
+      confirm_ep.on("click",function(){
+            const numberLine = insertVideoLink(epMovie.val());
+            console.log(numberLine)
+            test.html(numberLine);
+      })
+      
+   })
+   function insertVideoLink(epMovie){
+           var num = Number(epMovie);
+          var a ="" ;
+            for (let i = 1; i <= num; i++) {
+             a +=  `
+             <div class="mx-3 d-flex mt-2 align-items-center justify-content-around">
+            <label for="timeMovie" class="form-label">video tập ${i}</label>
+          <input type="text" name="listvideo" class="form-control w-50 mx-1" id="timeMovie" aria-describedby="emailHelp" >
+          </div>
+            `
+          }
+    return a;
+   }
+   function selectPhimBo(){
+       var selectCase = $('#selectCase');
+      var epMovie = $('#episodeMovie');
+       var timeMovie = $('#timeMovie');
+       var confirm_ep = $('#confirm_ep');
+       var vidMovie = $('#divMovie');
+       epMovie.removeAttr('disabled');
+             epMovie.attr('placeholder',"");
+            timeMovie.attr('placeholder',"(phút/tập)");
+            vidMovie.css("display","none");
+            confirm_ep.css("display","block");
+   }
+   function selectPhimLe(){
+       var selectCase = $('#selectCase');
+      var epMovie = $('#episodeMovie');
+       var timeMovie = $('#timeMovie');
+       var confirm_ep = $('#confirm_ep');
+       var vidMovie = $('#divMovie');
+          vidMovie.css("display","block");
+            epMovie.attr('disabled','disabled');
+               epMovie.attr('placeholder',"1");
+          timeMovie.attr('placeholder',"(phút)");
+             confirm_ep.css("display","none");
+   }
+</script>

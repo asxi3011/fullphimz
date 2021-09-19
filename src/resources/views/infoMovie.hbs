@@ -1,0 +1,94 @@
+
+<div class="pd-hd bg-img d-flex ">
+   {{#with data}}
+    <div class=" container-fluid">
+      <div class="img_description_movie pd-ct">
+        <div class="row text-light">
+         
+          <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-12">
+            <img class="img-info" src="{{image}}" alt="">
+          </div>
+        
+          <div class="col-xxl-5 col-xl-6 col-lg-8 col-md-8 col-sm-12">
+            <div class="title-movie fw-bold ">{{name}}</div>
+             <div class="rate-movie d-flex mt-3 ">
+                                    <i class="fas fa-star star-active fs-5"></i>
+                                    <i class="fas fa-star star-active fs-5"></i>
+                                    <i class="fas fa-star star-active fs-5"></i>
+                                    <i class="fas fa-star star-active fs-5"></i>
+                                    <i class="fas fa-star star-active fs-5"></i>
+                   <span class="mx-3"><i class="far fa-clock"></i> <span>9/9/2021</span></span>
+            </div>
+            <div class="d-flex mt-2">
+                <a href="#trailerVideo" class="btn btn-primary btn-info">Trailer</a>
+                <a href="/me/movie/{{slug}}/1" class="btn btn-danger btn-info mx-3">Xemphim</a>
+            </div>
+            <div class="mt-2">
+              <p  class="text-Capitalize">Thời lượng: {{timePlay}} phút/tập</p>
+              <p  class="text-Capitalize">Số tập: {{episodeRelease}}/{{episode}}</p>
+               <p class="text-Capitalize"> Quốc gia: {{country}} </p> 
+               <p  class="text-Capitalize">Thể loại: {{type}}</p>
+    
+            </div>
+          </div>
+       
+        </div>
+       
+       </div>
+
+        <div class="container-fluid pd-ct text-secondary mt-4">
+            <div class="movie-achievements">
+              
+            </div>
+            <div class="summary mt-2"><!--Tóm tắt-->
+                  <h2 class="text-light">Nội dung phim</h2>
+                  <p class="mt-2">{{description}}</p>
+                
+            </div>
+            <div id="trailerVideo" class="video_trailer mt-4 mb-4">
+                <h3 class="text-warning">Offical Trailer : </h3>
+                <div class="mt-3 trailer">
+
+                <iframe width="100%" height="440" src="https://www.youtube.com/embed/{{trailer}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+                {{/with}}
+            <div class="maybeyouwantsee text-center">
+                <h2 class="text-warning">Có Thể Bạn Muốn Xem</h2>
+                 <div class="row mt-2">
+                           
+                           {{#each dataBanMuonXem}}
+                           <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-4img-phim mb-3 gx-5 pd-home">
+                               <div class="img-movie">
+                                   <a href="/me/{{this.slug}}" class="img-a-movie">
+                                     <div class="img-mark">
+                                            <div class="content-mark fw-bold text-center">
+                                                {{this.mark}}
+                                            </div>
+                                        </div>
+                                   <img src="{{this.image}}" alt="">
+                                   </a>
+                               </div>
+                                <div class="rate-movie d-flex mt-2 justify-content-center">
+                                    <i class="fas fa-star star-active"></i>
+                                    <i class="fas fa-star star-active"></i>
+                                    <i class="fas fa-star star-active"></i>
+                                    <i class="fas fa-star star-active"></i>
+                                    <i class="fas fa-star star-active"></i>
+                                </div>
+                               <div class="text-light text-left text-name">
+                                   <a href="/me/{{this.slug}}">
+
+                                   {{this.name}}
+                                   </a>
+                                   
+                                   </div>
+                                <div class="hashtag" ><i class="far fa-hourglass text-danger"></i> {{timePlay}} phút </div> 
+                           </div>
+                          {{/each}}
+                       </div>
+            </div>
+        </div>
+    </div>
+ 
+</div>

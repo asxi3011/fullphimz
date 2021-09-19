@@ -1,0 +1,39 @@
+<div class="container-fluid content-home pd-ct">
+    <div class="bar-search pd-search-bar">
+
+         <form class="search-input d-flex" method="GET" action="/me/search">
+        <input type="text" class="form-control" name="q" id="basic-url" aria-describedby="basic-addon3">
+        <button type="submit" class="btn-danger">Tìm kiếm</button>
+        </form>
+    </div>
+    
+        {{#each data}}
+      <div class="mt-5">
+
+          <div class="row mt-3 d-flex justify-content-center">
+            <a href="/me/{{this.slug}}" class="col-xxl-2 col-xl-2 col-lg-2 col-md-6 col-sm-12 img-movie-search pd-home" >
+                <img class="" src="{{this.image}}" alt="">
+            </a>
+              <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 d-flex flex-column justify-content-evenly mobile-center pd-home mt-3">
+                  <a href="/me/{{this.slug}}" class="text-warning fs-4 text-name"> {{this.name}}</a>
+                <span class="text-secondary des-search mt-2 text-justify">{{this.description}}</span>
+              </div>
+
+           
+          </div>
+      
+
+           
+    </div>
+        {{/each}}
+         {{#unless data}}
+                <div class="not-found-movie ">
+                  <div class="text-danger ">
+                     <div class="fw-bold fs-2 text-center">  Không tìm thấy dữ liệu thích hợp <p>Vui Lòng thử lại</p></div>
+                   
+                  </div>
+              </div>
+         {{/unless}}
+      </div>
+
+</div>
